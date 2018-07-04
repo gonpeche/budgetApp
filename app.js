@@ -1,11 +1,30 @@
+// BUDGET CONTROLLER
 var budgetController = (function () {
-    var x = 23;
-    var add = function (a) {
-        return x + a;
-    }
-    return {
-        publicTest: function(b) {
-            console.log(add(b));
-        }
-    }
+
+    // some code
+
 })();
+
+
+
+
+// UI CONTROLLER
+var UIController = (function () {
+
+    // some code
+
+})();
+
+
+
+
+// GLOBAL APP CONTROLLER
+var controller = (function(budgetCtrl, UICtrl) {
+  
+    document.querySelector('.add__btn').addEventListener('click', function() {
+
+        // T
+
+    })
+
+})(budgetController, UIController); // Here they are linked to budgetCtrl and UICtrl.
