@@ -16,15 +16,41 @@ var budgetController = (function () {
 
     var data = {
         allItems: {
-            exp: [],
-            inc: []
+            expense: [],
+            income: []
         },
         totals: {
-            exp: 0,
-            inc: 0
+            expense: 0,
+            income: 0
         }
+    };
 
-    }
+    return {
+        addItem: function(type, des, val) {
+            var newItem, ID;
+
+            //
+            //
+            //
+
+            // Create new ID
+            ID = data.allItems[type][data.allItems[type].length - 1].id + 1; // Get the ID of the last item
+
+            //Creaete new item based on 'income' or 'expense' type
+            if (type === 'expense') {
+                newItem = new Expense(ID, des, val)
+            } else if (type === 'income') {
+                newItem = new Income(ID, des, val);
+            }
+
+            // Push it into our data structure
+            data.allItems[type].push(newItem);
+            
+            // Return the new element
+            return newItem;
+
+        }
+    };
 
 })();
 
@@ -93,7 +119,7 @@ var controller = (function(budgetCtrl, UICtrl) {
 
     return {
         init: function() {
-            console.log('App started!');
+            console.log('App has started!');
             setupEventListeners();
         }
     }
@@ -102,5 +128,4 @@ var controller = (function(budgetCtrl, UICtrl) {
 
 
 controller.init();
-
 
