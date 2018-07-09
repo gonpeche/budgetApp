@@ -38,7 +38,8 @@ var budgetController = (function () {
     return {
         addItem: function(type, des, val) {
             var newItem, ID;
-            
+
+
             //
             //
             //
@@ -114,7 +115,8 @@ var UIController = (function () {
         budgetLabel: '.budget__value',
         incomeLabel: '.budget__income--value',
         expensesLabel: '.budget__expenses--value',
-        percentageLabel: '.budget__expenses--percentage'
+        percentageLabel: '.budget__expenses--percentage',
+        container: '.container'
     }
 
     return {
@@ -200,6 +202,8 @@ var controller = (function(budgetCtrl, UICtrl) {
                 ctrlAddItem();
             }
         })
+
+        document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
     };
     
 
@@ -238,6 +242,19 @@ var controller = (function(budgetCtrl, UICtrl) {
         }
 
     };
+
+    var ctrlDeleteItem = function (event) {
+        var itemID, splitID;
+
+        itemID = event.target.parentNode.parentNode.parentNode.parentNode.id; // Select the parent element
+
+        if (itemID) { // If it exists, it will be coherced to true
+
+            // income-1
+            splitID = itemID.split("-");
+
+        }
+    }
 
     return {
         init: function() {
