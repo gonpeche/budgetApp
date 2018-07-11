@@ -165,6 +165,11 @@ var UIController = (function () {
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
         },
 
+        deleteListItem: function(selectorID) {
+            var el = document.getElementById(selectorID);
+            el.parentNode.removeChild(el);
+        }
+
         clearFields: function() { // clears the fields input
             var fields, fieldsArr;
             fields = document.querySelectorAll(DOMstrings.inputDescription +  ', ' + DOMstrings.inputValue); // returns a list that we have to convert to an array. We use the array method called SLICE, that returns a copy of the array. The trick is to send a list "as" an array.
@@ -272,8 +277,9 @@ var controller = (function(budgetCtrl, UICtrl) {
             // 1. Delete the item from the data structure
             budgetCtrl.deleteItem(type, ID);
             // 2. Delete the item from the UI
-
+            UICtrl.deleteListItem(itemID);
             // 3. Update & show the new budget
+            updateBudget();
 
         }
     }
