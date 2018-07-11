@@ -168,7 +168,7 @@ var UIController = (function () {
         deleteListItem: function(selectorID) {
             var el = document.getElementById(selectorID);
             el.parentNode.removeChild(el);
-        }
+        },
 
         clearFields: function() { // clears the fields input
             var fields, fieldsArr;
@@ -237,6 +237,14 @@ var controller = (function(budgetCtrl, UICtrl) {
         // 3. Display the budget on the UI
         UICtrl.displayBudget(budget);
 
+    };
+
+    var updatePercentages = function() {
+        // 1. Calculate Percentages
+
+        // 2. Read percentages from the budget controller
+
+        // 3. Update the UI with the new percentages
     }
 
 
