@@ -266,6 +266,9 @@ var controller = (function(budgetCtrl, UICtrl) {
     
             // 5. Calculate and update budget
             updateBudget();
+
+            // 6. Calculate and update percentages
+            updatePercentages();
         }
 
     };
@@ -288,6 +291,9 @@ var controller = (function(budgetCtrl, UICtrl) {
             UICtrl.deleteListItem(itemID);
             // 3. Update & show the new budget
             updateBudget();
+
+            // 4. Calculate and update percentages
+            updatePercentages();
 
         }
     }
